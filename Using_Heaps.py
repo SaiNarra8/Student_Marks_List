@@ -64,9 +64,14 @@ with open(sys.argv[1],'r') as marks:
 
 
 '''Big O Notation for finding individual subject toppers is O(n) 
-       So in each iteration checking for five subjects gives O(5n) which is equal to O(n) so LINEAR TIME COMPLEXITY'''
+   So in each iteration checking for five subjects gives O(5n) which is equal to O(n) so LINEAR TIME COMPLEXITY
+   SPACE COMPLEXITY - O(6) => O(1)'''
 
 '''Big O Notation for finding Top Three Students is O(nlogk) k being the no. of toppers required
-   We're inserting ltotal to one heap which takes O(logk) since it has only k elements which is 3 here and that is repeated n times so O(nlogk)'''
+   We're inserting ltotal to one heap which takes O(logk) since it has only k elements which is 3 here and that is repeated n times so O(nlogk)
+   SPACE COMPLEXITY - O(K) WHERE K IS THE NO. OF TOPPERS REQUIRED'''
+
+
+
 
 
