@@ -9,3 +9,5 @@ Sec.py includes both these approaches
 
 Link to the screencast video files: 
 https://drive.google.com/drive/folders/1XkiMR-9fa6rFuBdJ84gPwHQhLHoqLdUx?usp=sharing
+
+PS - Please set the video quality to 720p before watching it..Thank You
