@@ -101,10 +101,23 @@ with open(sys.argv[len(sys.argv)-1],'r') as marklist:
             ltotal += int(line[i])
 
 
-        if(ltotal>toppers['marks1']):
+        if(ltotal>toppers['marks1'] and ltotal>toppers['marks2'] and ltotal>toppers['marks3'] ):
+            toppers['name3'] = toppers['name2']
+            toppers['marks3'] = toppers['marks2']
+            toppers['name2'] = toppers['name1']
+            toppers['marks2'] = toppers['marks1']
             toppers['name1'] = line[0]
             toppers['marks1'] = ltotal
-        
+        elif(ltotal<toppers['marks1'] and ltotal>toppers['marks2']):
+            toppers['name3'] = toppers['name2']
+            toppers['marks3'] = toppers['marks2']
+            toppers['name2'] = line[0]
+            toppers['marks2'] = ltotal 
+        elif(ltotal<toppers['marks2'] and ltotal>toppers['marks3']):
+            toppers['name3'] = line[0]
+            toppers['marks3'] = ltotal
+        else:
+            continue        
 
         if(int(line[1])>mtopper['marks']):
             mtopper['name'] = line[0]
@@ -127,27 +140,7 @@ with open(sys.argv[len(sys.argv)-1],'r') as marklist:
 
 
 
-    marklist.seek(0)
-    next(csv_reader)
-    for line in csv_reader:
-        ltotal = 0
-        for i in range(1,7):
-            ltotal += int(line[i])
-        if(ltotal<toppers['marks1'] and ltotal>toppers['marks2']):
-            toppers['name2'] = line[0]
-            toppers['marks2'] = ltotal
-
-    marklist.seek(0)
-    next(csv_reader)
-    for line in csv_reader:
-        ltotal = 0
-        for i in range(1,7):
-            ltotal += int(line[i])
-        if(ltotal<toppers['marks2'] and ltotal>toppers['marks3']):
-            toppers['name3'] = line[0]
-            toppers['marks3'] = ltotal
-
-
+   
     print('\n\nTopper in Math is: ',mtopper['name'])        
     print('Topper in Biology is: ',btopper['name'])  
     print('Topper in English is: ',etopper['name'])  
@@ -161,6 +154,8 @@ with open(sys.argv[len(sys.argv)-1],'r') as marklist:
        So in each iteration checking for five subjects gives O(5n) which is equal to O(n) so LINEAR TIME COMPLEXITY'''
 
     '''Big O Notation for finding individual topper is O(n)
-       So it takes 3 iterations for Top 3 students so O(n) + O(n) + O(n) which is equal to O(n) so LINEAR TIME COMPLEXITY'''
+       So it takes 3 iterations for Toppers list which has K (3 here) students so O(Kn) where k is no. toppers required
+       or O(3n) which is equal to O(n) so LINEAR TIME COMPLEXITY'''
+
 
 
